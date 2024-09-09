@@ -1,0 +1,25 @@
+/* Override the backdrop styles */
+.react-modal-sheet-backdrop {
+  background-color: rgba(0, 0, 0, 0) !important; /* Custom background */
+}
+
+/* Override the container styles */
+.react-modal-sheet-container {
+
+}
+
+/* Override the header styles */
+.react-modal-sheet-header {
+  height: 21px !important;
+  background-color: black !important; /* Custom background */
+}
+
+/* Override the drag indicator styles */
+.react-modal-sheet-drag-indicator {
+  background-color: #fffaf0 !important; /* Custom color */
+}
+
+/* Override the content styles */
+.react-modal-sheet-content {
+  background-color: black !important; /* Custom background */
+}

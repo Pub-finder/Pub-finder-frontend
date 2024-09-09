@@ -1,0 +1,28 @@
+.sideBar {
+  background-color: black;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0.5rem;
+  z-index: 40;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #fffaf0 #000000;
+  overflow-y: auto;
+  bottom: 2.5rem;
+  top: 2.5rem;
+  scroll-padding-top: 10px;
+
+  @media (min-width: 640px) {
+    width: 12.5rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 18rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: 24rem;
+  }
+
+}
