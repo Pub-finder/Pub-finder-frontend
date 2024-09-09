@@ -1,0 +1,47 @@
+.barTab {
+  max-width: 26rem;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  color: #fffaf0;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  background-color: #625b4d;
+
+  &:hover {
+    background-color: #7d6a45;
+  }
+
+  &:focus {
+    background-color: #7d6a45;
+  }
+
+  &:active {
+    background-color: #7d6a45;
+  }
+
+  .buttons {
+    display: grid;
+    place-items: center;
+    border-radius: 0.5rem;
+    overflow: visible;
+    color: inherit;
+
+    div {
+      display: flex;
+      padding: 0.25rem 0;
+
+      button {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        padding: 0rem 1.5rem;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out 0.15s;
+      }
+    }
+  }
+}
+
+

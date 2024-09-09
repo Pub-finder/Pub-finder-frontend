@@ -1,0 +1,12 @@
+.bottomBar {
+  background-color: black;
+  padding: 0px 5px;
+  width: 100%;
+  max-height: 70vh;
+  z-index: 999;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 0.5rem;
+}
