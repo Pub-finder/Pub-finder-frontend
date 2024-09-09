@@ -14,6 +14,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "axios": "1.6.8",
     "clsx": "^2.1.0",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.2.6",
     "js-cookie": "^3.0.5",
     "leaflet": "1.9.4",
@@ -48,7 +49,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview"
   },
   "browserslist": [
     ">0.2%",

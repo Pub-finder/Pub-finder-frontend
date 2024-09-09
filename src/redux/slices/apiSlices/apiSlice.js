@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { signout, setCredentials } from "../authSlice";
 import Cookies from 'js-cookie'
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:8080',
+    baseUrl: apiUrl,
     credentials: 'include',
     prepareHeaders: (headers) => {
         const token = localStorage.getItem("accessToken")
