@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { signout, setCredentials } from "../authSlice";
 import Cookies from 'js-cookie'
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const baseQuery = fetchBaseQuery({
     baseUrl: apiUrl,

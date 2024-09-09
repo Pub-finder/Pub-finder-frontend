@@ -1,20 +1,17 @@
 import { Icon } from "leaflet";
-import marker from "../../content/beer (1).png";
-import marker2 from "../../content/position (1).png";
-import here from "../../content/time.png";
 
 export const beerIcon = new Icon({
-  iconUrl: marker,
+  iconUrl: "content/beer.png",
   iconSize: [27, 27],
 });
 
 export const userIcon = new Icon({
-  iconUrl: marker2,
+  iconUrl: "content/position.png",
   iconSize: [45, 45],
 });
 
 export const hereIcon = new Icon({
-  iconUrl: here,
+  iconUrl: "content/here.png",
   iconSize: [55, 55],
 });
 
