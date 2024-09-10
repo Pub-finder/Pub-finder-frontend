@@ -8,7 +8,7 @@ export default function BottomSheet() {
     <>
       <Sheet
         isOpen={true}
-        snapPoints={[0.6, 189, 48]}
+        snapPoints={[0.6, 190, 45]}
         initialSnap={1}
         onClose={() => {
           console.log('Sheet closed');
