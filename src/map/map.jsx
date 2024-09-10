@@ -64,7 +64,7 @@ export default function Map() {
       setIsLoading(false);
     } catch (error) {
       console.log("Unable to retrieve user location:", error);
-      setPositionError(true);
+      setIsError(true);
       setIsLoading(false);
     }
   };
