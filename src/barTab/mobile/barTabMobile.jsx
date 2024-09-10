@@ -43,7 +43,7 @@ export default function BarTab({ pub, user = false, visited, refetch, isSearched
         </div>
 
         <div className={styles.barTab} ref={ref}>
-            <MoreInfo pub={pub} inView={inView} />
+            <MoreInfo pub={pub} mobile={true} inView={inView} />
         </div>
       </div>
   );
