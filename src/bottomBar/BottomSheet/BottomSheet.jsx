@@ -8,7 +8,7 @@ export default function BottomSheet() {
     <>
       <Sheet
         isOpen={true}
-        snapPoints={[320, 152, 20]}
+        snapPoints={[0.7, 0.31, 0.05]}
         initialSnap={1}
       >
         <Sheet.Container>
