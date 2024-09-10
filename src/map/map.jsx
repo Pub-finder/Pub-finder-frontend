@@ -57,8 +57,8 @@ export default function Map() {
         navigator.geolocation.getCurrentPosition(resolve, reject);
       });
       setGecode({
-          latitude: 59.31515121304178, // position.coords.latitude,
-          longitude: 18.07202469430583, // position.coords.longitude,
+          latitude: position.coords.latitude, // 59.31515121304178
+          longitude: position.coords.longitude, // 18.07202469430583
           radius: 1
       });
       setIsLoading(false);
