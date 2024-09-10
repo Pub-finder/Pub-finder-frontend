@@ -10,8 +10,7 @@
 
 /* Override the header styles */
 .react-modal-sheet-header {
-  height: 21px !important;
-  background-color: black !important; /* Custom background */
+  background-color: #625b4d !important /* Custom background */
 }
 
 /* Override the drag indicator styles */
