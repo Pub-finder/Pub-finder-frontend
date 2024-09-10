@@ -7,8 +7,6 @@ import InfoRender from "./InfoRender";
 export default function Info({ pub, inView = false, mobile = false }) {
     const { data: info, isLoading, isError, isSuccess } = useGetAdditionalInfoQuery(inView ? pub.id : skipToken);
 
-    console.log("info: ", info);
-
     return (
         <div className={styles.infoTab}>
             {!mobile && <hr/>}
