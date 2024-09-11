@@ -1,9 +1,9 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 import { signout, setCredentials } from "../authSlice";
 import Cookies from 'js-cookie'
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const baseQuery = fetchBaseQuery({
+const baseQuery = retry(fetchBaseQuery({
     baseUrl: apiUrl,
     credentials: 'include',
     prepareHeaders: (headers) => {
@@ -13,9 +13,9 @@ const baseQuery = fetchBaseQuery({
         }
         return headers
     }
-})
+}), {maxRetries: 8, });
 
-const reauthBaseQuery = fetchBaseQuery({
+const reauthBaseQuery = retry(fetchBaseQuery({
     baseUrl: 'http://localhost:8080',
     credentials: 'include',
     prepareHeaders: (headers) => {
@@ -26,14 +26,21 @@ const reauthBaseQuery = fetchBaseQuery({
         }
         return headers
     }
-})
+}), {maxRetries: 8, });
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
     if (args.url.includes('null')) { // skipToken is not working in map.jsx so this is needed
         return { data: [] }
     }
 
-    let result = await baseQuery(args, api, extraOptions)
+    let result = await baseQuery(args, api, extraOptions);
+
+    console.log(result);
+    /*
+    if (result?.error?.status != "FETCH_ERROR") {
+        retry.fail(result.error);
+    }
+    */
     if (result?.error?.status == 403) {
         console.log('sending refresh token')
 
@@ -52,6 +59,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
             api.dispatch(signout())
         }
     }
+
     return result
 }
 
