@@ -19,7 +19,7 @@ export default function Register() {
     email: "",
     password: "",
     confirmPassword: "",
-    sucessMsg: "",
+    successMsg: "",
   });
 
   const handleUserInput = (name, value) => {
@@ -51,7 +51,7 @@ export default function Register() {
         email: "",
         password: "",
         confirmPassword: "",
-        sucessMsg: "",
+        successMsg: "",
       });
       navigate('/')
     } catch (err) {

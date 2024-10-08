@@ -11,6 +11,7 @@ export default function LoginForm(){
     const dispatch = useDispatch()
     let navigate = useNavigate()
     const [login, { isLoading }] = useLoginMutation();
+
     const [formError, setFormError] = useState()
     const [formInput, setFormInput] = useState({
         username: "",
@@ -64,8 +65,8 @@ export default function LoginForm(){
             className={styles.input}
             onChange={({ target }) => { handleUserInput(target.name, target.value) }}
           />
-          <p className={styles.errorMsg} >{formError}</p>
 
+          <p className={styles.errorMsg} >{formError}</p>
 
           <button type="submit">
             Sign In
