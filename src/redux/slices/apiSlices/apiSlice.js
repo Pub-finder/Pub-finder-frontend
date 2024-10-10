@@ -34,8 +34,16 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     }
 
     let result = await baseQuery(args, api, extraOptions);
+    console.log(result)
 
-    console.log(result);
+    if (result?.meta?.response?.url == "http://localhost:8080/user/register" && result?.data == null) {
+        result.data = {
+            userId: result.meta.response.headers.get('X-User-Id'),
+            accessToken: result.meta.response.headers.get('X-ACCESS-TOKEN'),
+            refreshToken: result.meta.response.headers.get('X-REFRESH-TOKEN'),
+        };
+    }
+
     /*
     if (result?.error?.status != "FETCH_ERROR") {
         retry.fail(result.error);

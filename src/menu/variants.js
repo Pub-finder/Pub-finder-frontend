@@ -10,7 +10,7 @@ export const menuVariants = {
       }
     },
     closed: {
-      clipPath: "inset(10% 0% 95% 0% round 10px)",
+      clipPath: "inset(10% 0% 100% 0% round 10px)",
       transition: {
         type: "spring",
         bounce: 0,

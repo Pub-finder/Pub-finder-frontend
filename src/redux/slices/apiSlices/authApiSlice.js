@@ -28,7 +28,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 },
                 headers: {
                   "Content-Type": "application/json",
-                }, 
+                },
             })
         }),
         logout: builder.mutation({
@@ -37,7 +37,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
-                }, 
+                },
             })
         }),
     })

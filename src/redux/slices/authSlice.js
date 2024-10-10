@@ -10,8 +10,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials(state, action) {
-      const { accessToken, refreshToken } = action.payload.response
-      localStorage.setItem("user", action.payload.user);
+        console.log(action.payload.response)
+      const { userId, accessToken, refreshToken } = action.payload.response
+      localStorage.setItem("user", userId);
       localStorage.setItem("accessToken", accessToken);
       Cookies.set('refresher-cookie', refreshToken, { expires: 1 })
     },
