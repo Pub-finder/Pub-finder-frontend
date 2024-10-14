@@ -5,9 +5,10 @@ import { menuVariants, itemVariants } from "./variants"
 import styles from './style.module.scss';
 import { Link } from "react-router-dom";
 import { authenticatedMenu, unauthenticatedMenu } from "./menus";
+import { useSelector } from 'react-redux';
 
 export default function DropdownMenu() {
-    const authenticated = true
+    const authenticated = useSelector((state) => state.auth.authenticated);
     const [isOpen, setIsOpen] = useState(false);
     const menu = authenticated ? authenticatedMenu : unauthenticatedMenu;
 
