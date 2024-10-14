@@ -13,7 +13,7 @@ import {
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
-import correctEncoding from "../utils/correctEncoding";
+import { correctEncoding } from "../utils/utils";
 import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import { beerIcon, userIcon } from "./icons";

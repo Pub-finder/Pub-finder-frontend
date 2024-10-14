@@ -1,6 +1,5 @@
-import formatLocation from "../../utils/formatLocation";
-import formatOpeningHoursForToday from "../../utils/formatOpeningHoursForToday";
-import correctEncoding from "../../utils/correctEncoding";
+import { correctEncoding, formatLocation } from "../../utils/utils";
+import { formatOpeningHoursForToday } from "../../utils/utils";
 
 import { WiTime1 } from "react-icons/wi";
 import { GoLocation } from "react-icons/go";
