@@ -9,6 +9,7 @@ import styles from './style.module.scss';
 import useIsMobile from '../utils/hook/useIsMobile';
 import BottomSheet from "../bottomBar/BottomSheet/BottomSheet";
 import { toggleLayer } from "../redux/slices/layerSlice";
+import Menu from "../menu/Menu";
 
 export default function StartPage() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function StartPage() {
 
   return (
     <>
+      <Menu />
       <SearchBar />
       {isMobile ? <BottomSheet /> : <SideBar />}
       <Map className={styles.map} />

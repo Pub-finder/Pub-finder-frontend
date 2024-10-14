@@ -1,0 +1,36 @@
+@mixin menuItem($logout: false) {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    @if $logout {
+        padding: 10px 2.5px;
+    }
+    @else {
+        padding: 10px 5px;
+    }
+
+    svg {
+        margin-right: 8px;
+    }
+}
+
+.menuContainer {
+      position: relative;
+      z-index: 50;
+    section {
+        position: absolute;
+        left: 0.5rem;
+        top: 0.5rem;
+
+        ul {
+            top: 0.5rem;
+            .link {
+              @include menuItem($logout: false);
+            }
+            .logout {
+              @include menuItem($logout: true);
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         login: builder.mutation({
             query: credentials => ({
-                url: '/user/login',
+                url: '/auth/login',
                 method: 'POST',
                 body: {
                     'username': credentials.username,
@@ -28,8 +28,20 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 },
                 headers: {
                   "Content-Type": "application/json",
-                }, 
-            })
+                },
+            }),
+            transformResponse: (response, meta) => {
+                console.log("response: ",response);
+                console.log("meta: ", meta);
+                if (meta?.response?.status == 201) {
+                    return {
+                        userId: meta.response.headers.get('X-User-Id'),
+                        accessToken: meta.response.headers.get('X-ACCESS-TOKEN'),
+                        refreshToken: meta.response.headers.get('X-REFRESH-TOKEN'),
+                        message: 'User registered successfully',
+                    };
+                }
+            }
         }),
         logout: builder.mutation({
             query: credentials => ({
@@ -37,7 +49,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",
-                }, 
+                },
             })
         }),
     })
