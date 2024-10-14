@@ -39,8 +39,6 @@ export default function Register() {
 
     try {
       const response = await signup(formInput).unwrap();
-      console.log('Response:', response);
-      // Use headers not the body to retrive the tokens
       dispatch(setCredentials({ response }));
 
       setFormInput({
@@ -54,9 +52,8 @@ export default function Register() {
       });
       navigate('/')
     } catch (err) {
-        // Check error
-        console.log(err)
-      setFormError("Signup Failed")
+      console.log(err)
+      setFormError(err?.data)
     }
   }
 

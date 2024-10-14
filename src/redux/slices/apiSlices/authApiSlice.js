@@ -29,7 +29,19 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 headers: {
                   "Content-Type": "application/json",
                 },
-            })
+            }),
+            transformResponse: (response, meta) => {
+                console.log("response: ",response);
+                console.log("meta: ", meta);
+                if (meta?.response?.status == 201) {
+                    return {
+                        userId: meta.response.headers.get('X-User-Id'),
+                        accessToken: meta.response.headers.get('X-ACCESS-TOKEN'),
+                        refreshToken: meta.response.headers.get('X-REFRESH-TOKEN'),
+                        message: 'User registered successfully',
+                    };
+                }
+            }
         }),
         logout: builder.mutation({
             query: credentials => ({

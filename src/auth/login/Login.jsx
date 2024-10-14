@@ -30,8 +30,7 @@ export default function LoginForm(){
 
       try {
         const response = await login(formInput).unwrap()
-        const user = formInput.username
-        dispatch(setCredentials({ response, user }));
+        dispatch(setCredentials({ response }));
 
         setFormInput({
           username: "",
