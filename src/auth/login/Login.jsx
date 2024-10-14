@@ -38,6 +38,7 @@ export default function LoginForm(){
         });
         navigate('/')
       } catch (err) {
+        console.log(err)
         setFormError("Login Failed")
       }
     }
