@@ -5,9 +5,11 @@ import { menuVariants, itemVariants } from "./variants"
 import styles from './style.module.scss';
 import { Link } from "react-router-dom";
 import { authenticatedMenu, unauthenticatedMenu } from "./menus";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { signout } from "../redux/slices/authSlice";
 
 export default function DropdownMenu() {
+    const dispatch = useDispatch();
     const authenticated = useSelector((state) => state.auth.authenticated);
     const [isOpen, setIsOpen] = useState(false);
     const menu = authenticated ? authenticatedMenu : unauthenticatedMenu;
@@ -49,7 +51,7 @@ export default function DropdownMenu() {
                                 </Link>
                             ) : (
                                 <span
-                                    onClick={() => console.log("logout")} className={styles.logout}>
+                                    onClick={() => dispatch(signout())} className={styles.logout}>
                                     {variant.svg}
                                     {variant.name}
                                 </span>
