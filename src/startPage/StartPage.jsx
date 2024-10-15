@@ -17,7 +17,6 @@ export default function StartPage() {
 
   return (
     <>
-
       <SearchBar />
       {isMobile ? <BottomSheet /> : <SideBar />}
       <Map className={styles.map} />
