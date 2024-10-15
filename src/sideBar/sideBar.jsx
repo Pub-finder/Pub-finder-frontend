@@ -11,7 +11,7 @@ export default function SideBar() {
   const { data: pubs = [], isLoading, isError, isSuccess } = useGetPubsQuery(geocode ? geocode : skipToken);
   const searchedPub = useSelector((state) => state.pub.pub);
 
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem("userId");
   const [getVisitedPubs, setGetVisitedPubs] = useState(false);
   const { data: visitedPubs, refetch } = useGetVisitedPubsQuery(getVisitedPubs ? user : skipToken)
 

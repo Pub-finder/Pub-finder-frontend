@@ -1,5 +1,6 @@
-import { correctEncoding, formatLocation } from "../../utils/utils";
-import { formatOpeningHoursForToday } from "../../utils/utils";
+import { React, useState } from "react";
+import { useDeleteVisitMutation, useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
+import { correctEncoding, formatLocation, formatOpeningHoursForToday } from "../../utils/utils";
 
 import { WiTime1 } from "react-icons/wi";
 import { GoLocation } from "react-icons/go";
@@ -7,7 +8,36 @@ import { BiSolidBeenHere } from "react-icons/bi";
 
 import styles from './style.module.scss';
 
-export default function BasicInfo({ pub, user }) {
+export default function BasicInfo({ pub, userId, visited }) {
+    const [deleteVisit] = useDeleteVisitMutation();
+    const [visitedPub] = useVisitMutation();
+    const [hasVisited, setHasVisited] = useState(visited);
+
+    const handleVisit = async () => {
+        if (hasVisited) {
+            try {
+                await deleteVisit({
+                    pubId: pub.id,
+                    userId: userId
+                }).unwrap();
+                console.log(`User ${user} has un visited Pub ${pub.name}`)
+            } catch (err) {
+                console.log(err)
+            }
+        } else {
+            try {
+                await visitedPub({
+                    pubId: pub.id,
+                    userId: userId
+                }).unwrap();
+                console.log(`User ${user} has visited Pub ${pub.name}`)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        setHasVisited(!hasVisited);
+    };
+
     return (
         <div className={styles.basic}>
           <div className={styles.titleAndRating}>
@@ -31,7 +61,7 @@ export default function BasicInfo({ pub, user }) {
               <p>
                 {pub.price}
               </p>
-              {user && (
+              {userId && (
                 hasVisited ?
                   <BiSolidBeenHere size={25} onClick={handleVisit} />
                   :
