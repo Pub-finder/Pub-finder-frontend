@@ -22,7 +22,7 @@ export default function VisitedPubs() {
                         <div key={pub.id}>
                             <BarTab
                                 pub={pub}
-                                user={userId}
+                                userId={userId}
                                 visited={true}
                                 refetch={null} // Consider changing to a proper function if required
                                 isSearchedPub={false}

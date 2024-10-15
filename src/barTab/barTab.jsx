@@ -8,7 +8,7 @@ import BasicInfo from "./basicInfo/basicInfo";
 import MoreInfo from "./moreInfo/moreInfo";
 import styles from './style.module.scss';
 
-export default function BarTab({ pub, user = false, visited = false, isSearchedPub = false, mobile = false }) {
+export default function BarTab({ pub, userId = null, visited = false, isSearchedPub = false, mobile = false }) {
   const dispatch = useDispatch();
   const [expandedPubId, setExpandedPubId] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
@@ -28,7 +28,7 @@ export default function BarTab({ pub, user = false, visited = false, isSearchedP
       tabIndex="0"
       key={pub.id}
     >
-        <BasicInfo pub={pub} user={user} visited={visited} />
+        <BasicInfo pub={pub} userId={userId} visited={visited} />
         <Buttons showInfo={showInfo} showReviews={showReviews} setShowInfo={setShowInfo} setShowReviews={setShowReviews} />
         {showInfo && <MoreInfo pub={pub} inView={showInfo} />}
         {showReviews && <p> under construction </p>}

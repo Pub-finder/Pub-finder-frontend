@@ -8,7 +8,7 @@ import { BiSolidBeenHere } from "react-icons/bi";
 
 import styles from './style.module.scss';
 
-export default function BasicInfo({ pub, userId, visited }) {
+export default function BasicInfo({ pub, userId = null, visited = false }) {
     const [deleteVisit] = useDeleteVisitMutation();
     const [visitedPub] = useVisitMutation();
     const [hasVisited, setHasVisited] = useState(visited);
@@ -61,11 +61,12 @@ export default function BasicInfo({ pub, userId, visited }) {
               <p>
                 {pub.price}
               </p>
-              {userId && (
-                hasVisited ?
-                  <BiSolidBeenHere size={25} onClick={handleVisit} />
-                  :
-                  <BiSolidBeenHere size={25} onClick={handleVisit} />
+              { userId && (
+                <BiSolidBeenHere
+                  size={25}
+                  onClick={handleVisit}
+                  className={hasVisited ? styles.hasVisited : styles.hasNotVisited}
+                />
               )}
             </li>
 

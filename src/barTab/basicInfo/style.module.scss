@@ -1,3 +1,13 @@
+@mixin visitIcon($visited: false) {
+    @if $visited {
+        color: #60a5fa;
+    }
+    @else {
+        color: #ffffff;
+    }
+}
+
+
 .basic {
     height: 8.5rem;
     width: 20rem;
@@ -54,6 +64,14 @@
           color: inherit;
         }
 
+        .hasVisited {
+            @include visitIcon($visited: true);
+        }
+
+        .hasNotVisited {
+            @include visitIcon($visited: false);
+        }
+
         .been-here-icon {
           transition: all 0.2s ease-in-out 0.15s;
           margin-left: 10rem;
@@ -64,7 +82,7 @@
           }
 
           &.visited {
-            color: #60a5fa;d
+            color: #60a5fa;
             &:hover {
               color: #ffffff;
             }
