@@ -2,7 +2,8 @@ import { React, useEffect, useState } from "react";
 import styles from './style.module.scss';
 import { useSelector } from "react-redux";
 import BarTab from "../barTab/barTab";
-import { useGetVisitedPubsQuery, useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { useGetVisitedPubsQuery } from "../redux/slices/apiSlices/visitApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query';
 import Loader from "../utils/loader/TextSpinnerLoader";
 

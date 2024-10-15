@@ -38,15 +38,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 },
             })
         }),
-        getVisitedPubs: builder.query({
-            query: (userId) => ({
-                url: `/visited/visits/${userId}`,
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-        }),
         searchForPub: builder.query({
             query: (term) => ({
                 url: `/pub/searchPubs/${term}`,
@@ -73,7 +64,6 @@ export const {
     useGetPubQuery,
     useGetReviewsForPubQuery,
     useGetUserReviewsQuery,
-    useGetVisitedPubsQuery,
     useSearchForPubQuery,
     useGetAdditionalInfoQuery,
 } = apiSlice

@@ -20,10 +20,20 @@ export const visitedApiSlice = apiSlice.injectEndpoints({
                 },
             })
         }),
+        getVisitedPubs: builder.query({
+            query: (userId) => ({
+                url: `/visited/visits/${userId}`,
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        }),
     })
 })
 
 export const {
     useVisitMutation,
     useDeleteVisitMutation,
+    useGetVisitedPubsQuery
 } = apiSlice
