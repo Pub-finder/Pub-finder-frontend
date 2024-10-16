@@ -2,7 +2,8 @@ import { React, useEffect, useState } from "react";
 import styles from './style.module.scss';
 import { useSelector } from "react-redux";
 import BarTab from "../barTab/barTab";
-import { useGetVisitedPubsQuery, useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { useGetVisitedPubsQuery } from "../redux/slices/apiSlices/visitApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query';
 import Loader from "../utils/loader/TextSpinnerLoader";
 
@@ -11,21 +12,15 @@ export default function SideBar() {
   const { data: pubs = [], isLoading, isError, isSuccess } = useGetPubsQuery(geocode ? geocode : skipToken);
   const searchedPub = useSelector((state) => state.pub.pub);
 
-  const user = localStorage.getItem("user");
-  const [getVisitedPubs, setGetVisitedPubs] = useState(false);
-  const { data: visitedPubs, refetch } = useGetVisitedPubsQuery(getVisitedPubs ? user : skipToken)
-
-  useEffect(() => {
-    if (user) {
-      setGetVisitedPubs(true)
-    }
-  }, [user])
+  const authenticated = useSelector((state) => state.auth.authenticated);
+  const userId = localStorage.getItem("userId");
+  const { data: visitedPubs = [], refetch } = useGetVisitedPubsQuery(authenticated ? userId : skipToken);
 
   const visited = (pub) => {
-    if (!visitedPubs) {
+    if (visitedPubs.length === 0) {
       return false;
     }
-    return visitedPubs.some((visitedPub) => visitedPub.pubDto.id === pub.id);
+    return visitedPubs.some((visitedPub) => visitedPub.pubId === pub.id);
   };
 
   return (
@@ -37,9 +32,8 @@ export default function SideBar() {
                 <BarTab
                 key={searchedPub.id}
                 pub={searchedPub}
-                user={user}
+                userId={userId}
                 visited={visited(searchedPub)}
-                refetch={refetch}
                 isSearchedPub={true}
                 />
             </div>
@@ -50,9 +44,8 @@ export default function SideBar() {
                 {searchedPub.id != pub.id &&
                     <BarTab
                         pub={pub}
-                        user={user}
+                        userId={userId}
                         visited={visited(pub)}
-                        refetch={refetch}
                         isSearchedPub={false}
                     />
                 }

@@ -1,109 +1,1178 @@
-const mockPubs = [
-  {
-    geocode: [59.315552798180725, 18.072507235005727],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Snaps Bar & Bistro",
-  },
-  {
-    geocode: [59.31486897929261, 18.074183281242654],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Kvarnen",
-  },
-  {
-    geocode: [59.31510200676354, 18.0762297626072],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Carmen",
-  },
-  {
-    geocode: [59.31505777046851, 18.075734442651033],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Söderkällaren",
-  },
-  {
-    geocode: [59.31446458143229, 18.074446831963282],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Kellys bar",
-  },
-  {
-    geocode: [59.31491424279548, 18.07646732757242],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Mikkeller Stockholm (Södermalm)",
-  },
-  {
-    geocode: [59.31471755029297, 18.07653957632357],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Honey Honey",
-  },
-  {
-    geocode: [59.31468848147663, 18.076027373421248],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "The Central Bar",
-  },
-  {
-    geocode: [59.31465941220587, 18.075751422233118],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Södra Sidan Pub",
-  },
-  {
-    geocode: [59.3146376182348, 18.075604411776133],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Charles Dickens",
-  },
-  {
-    geocode: [59.3159172442376, 18.072310997040212],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Hirschenkeller",
-  },
-  {
-    geocode: [59.31617029211313, 18.072178515414343],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Crazy Horse",
-  },
-  {
-    geocode: [59.31646847658251, 18.07233278249146],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Baras Backe",
-  },
-  {
-    geocode: [59.317168485597406, 18.07196923056482],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Tiffany's",
-  },
-  {
-    geocode: [59.31809804488252, 18.07227046528643],
-    open: "3 pm–3 am",
-    location: "Götgatan 48, 118 26 Stockholm",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    name: "Omnipollos hatt",
-  },
+export const mockPubs = [
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "dc5d754b-9d08-4808-9a72-b5e268353a26",
+        "name": "Biblioteket Live",
+        "lat": 59.3145358,
+        "lng": 18.0721216,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [],
+            "TUESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "02:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "11:00:00",
+                    "endTime": "01:00:00"
+                }
+            ]
+        },
+        "location": "Medborgarplatsen 2, 118 26 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": "http://biblioteketlive.se/",
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": true
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "5ac8bbeb-13e6-4349-8913-679b19409303",
+        "name": "Pig & Whistle",
+        "lat": 59.3146665,
+        "lng": 18.0707008,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "22:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "19:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "10:00:00",
+                    "endTime": "21:00:00"
+                }
+            ]
+        },
+        "location": "Söderhallarna 102, 118 72 Stockholm, Sweden",
+        "description": null,
+        "price": "$$",
+        "additionalInfoDto": {
+            "website": null,
+            "accessibility": {
+                "accessibleSeating": true,
+                "accessibleEntrance": true,
+                "accessibleParking": false
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
+    {
+        "id": "a442c09e-e312-400c-948a-6e7c2eca8134",
+        "name": "ENVY BAR",
+        "lat": 59.3147015,
+        "lng": 18.070714,
+        "openingHours": {
+            "FRIDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "MONDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SUNDAY": [
+                {
+                    "startTime": "13:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "TUESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "SATURDAY": [
+                {
+                    "startTime": "12:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "THURSDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ],
+            "WEDNESDAY": [
+                {
+                    "startTime": "15:00:00",
+                    "endTime": "23:00:00"
+                }
+            ]
+        },
+        "location": "Södermalmsallén 104, 118 28 Stockholm, Sweden",
+        "description": null,
+        "price": null,
+        "additionalInfoDto": {
+            "website": "http://www.usine.se/envy",
+            "accessibility": {
+                "accessibleSeating": null,
+                "accessibleEntrance": null,
+                "accessibleParking": null
+            },
+            "washroom": true,
+            "outDoorSeating": false
+        },
+        "rating": 0,
+        "toiletRating": 0,
+        "serviceRating": 0,
+        "volume": null
+    },
 ];
-
-export default mockPubs;

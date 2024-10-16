@@ -5,6 +5,7 @@
     color: white;
     @if $logout {
         padding: 10px 2.5px;
+        cursor: pointer;
     }
     @else {
         padding: 10px 5px;
@@ -15,9 +16,26 @@
     }
 }
 
+@mixin buttonColor($dark: false) {
+    @if $dark {
+        color: black;
+    }
+    @else {
+        color: white;
+    }
+}
+
 .menuContainer {
-      position: relative;
-      z-index: 50;
+    position: relative;
+    z-index: 50;
+
+    .darkButton {
+        @include buttonColor($dark: true)
+    }
+    .lightButton {
+        @include buttonColor($dark: false)
+    }
+
     section {
         position: absolute;
         left: 0.5rem;

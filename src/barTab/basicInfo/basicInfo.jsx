@@ -1,6 +1,6 @@
-import formatLocation from "../../utils/formatLocation";
-import formatOpeningHoursForToday from "../../utils/formatOpeningHoursForToday";
-import correctEncoding from "../../utils/correctEncoding";
+import { React, useState } from "react";
+import { useDeleteVisitMutation, useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
+import { correctEncoding, formatLocation, formatOpeningHoursForToday } from "../../utils/utils";
 
 import { WiTime1 } from "react-icons/wi";
 import { GoLocation } from "react-icons/go";
@@ -8,7 +8,35 @@ import { BiSolidBeenHere } from "react-icons/bi";
 
 import styles from './style.module.scss';
 
-export default function BasicInfo({ pub, user }) {
+export default function BasicInfo({ pub, userId = null, visited = false }) {
+    const [deleteVisit] = useDeleteVisitMutation();
+    const [visitedPub] = useVisitMutation();
+    const [hasVisited, setHasVisited] = useState(visited);
+
+    const handleVisit = async () => {
+        const username = localStorage.getItem("username");
+
+        try {
+            if (hasVisited) {
+                await deleteVisit({
+                    pubId: pub.id,
+                    userId: userId
+                }).unwrap();
+                console.log(`User ${username} has un visited Pub ${pub.name}`) // add dialog window
+            } else {
+                await visitedPub({
+                    pubId: pub.id,
+                    userId: userId,
+                    username: username
+                }).unwrap();
+                console.log(`User ${username} has visited Pub ${pub.name}`) // add dialog window
+            }
+            setHasVisited(!hasVisited);
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
     return (
         <div className={styles.basic}>
           <div className={styles.titleAndRating}>
@@ -32,11 +60,12 @@ export default function BasicInfo({ pub, user }) {
               <p>
                 {pub.price}
               </p>
-              {user && (
-                hasVisited ?
-                  <BiSolidBeenHere size={25} onClick={handleVisit} />
-                  :
-                  <BiSolidBeenHere size={25} onClick={handleVisit} />
+              { userId && (
+                <BiSolidBeenHere
+                  size={25}
+                  onClick={handleVisit}
+                  className={hasVisited ? styles.hasVisited : styles.hasNotVisited}
+                />
               )}
             </li>
 

@@ -22,7 +22,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }),
         getReviewsForPub: builder.query({
             query: (pubId) => ({
-                url: `/pub/reviews/${pubId}`,
+                url: `/review/reviews/pub/${pubId}`,
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -30,17 +30,8 @@ export const authApiSlice = apiSlice.injectEndpoints({
             })
         }),
         getUserReviews: builder.query({
-            query: (username) => ({
-                url: `/user/reviews/${username}`,
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-        }),
-        getVisitedPubs: builder.query({
-            query: (username) => ({
-                url: `/user/getVisitedPubs/${username}`,
+            query: (userId) => ({
+                url: `/review/reviews/user/${userId}`,
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -73,7 +64,6 @@ export const {
     useGetPubQuery,
     useGetReviewsForPubQuery,
     useGetUserReviewsQuery,
-    useGetVisitedPubsQuery,
     useSearchForPubQuery,
     useGetAdditionalInfoQuery,
 } = apiSlice

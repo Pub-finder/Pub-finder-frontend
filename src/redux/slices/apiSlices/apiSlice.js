@@ -26,11 +26,11 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     if (result?.error?.status == 403) {
         console.log('Sending refresh token');
 
-        const token = Cookies.get('refresher-cookie');
-        localStorage.setItem("accessToken", token);
-        const refreshResult = await retryWithDelay(() => baseQuery('auth/refreshToken', api, extraOptions), 6);
+        const refreshToken = Cookies.get('refresher-cookie');
+        const refreshResult = await retry(() => baseQuery(`auth/refreshToken/${refreshToken}`, api, extraOptions), 6);
 
         if (refreshResult?.data) {
+            console.log("Token refreshed");
             // Store new tokens
             localStorage.setItem("accessToken", refreshResult.data.accessToken);
             Cookies.set('refresher-cookie', refreshResult.data.refreshToken, { expires: 1 })
@@ -38,6 +38,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
             // Retry the original query with the new token
             result = await retry(() => baseQuery(args, api, extraOptions), 6);
         } else {
+            const token = localStorage.getItem("accessToken");
+            const refreshResult = await retry(() => baseQuery(`auth/logout/${token}`, api, extraOptions), 6);
             api.dispatch(signout());
             console.log(`Authentication failed, user logged out`);
             return { error: { status: 401, message: "Unauthorized" } };
