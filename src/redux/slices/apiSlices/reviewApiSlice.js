@@ -44,6 +44,15 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
                 },
             })
         }),
+        getReviewsForPub: builder.query({
+            query: (pubId) => ({
+                url: `/review/reviews/pub/${pubId}`,
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        }),
     })
 })
 
@@ -51,4 +60,5 @@ export const {
     useReviewMutation,
     useDeleteReviewMutation,
     useUpdateReviewMutation,
+    useGetReviewsForPubQuery
 } = apiSlice
