@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import { authenticatedMenu, unauthenticatedMenu } from "./menus";
 import { useSelector, useDispatch } from 'react-redux';
 import { signout } from "../redux/slices/authSlice";
+import { useLogoutMutation } from "../redux/slices/apiSlices/authApiSlice";
 
 export default function DropdownMenu() {
     const dispatch = useDispatch();
+    const [logout] = useLogoutMutation();
     const authenticated = useSelector((state) => state.auth.authenticated);
     const [isOpen, setIsOpen] = useState(false);
     const menu = authenticated ? authenticatedMenu : unauthenticatedMenu;
@@ -18,6 +20,18 @@ export default function DropdownMenu() {
     // If in on of the auth pages the menu button becomes white instead of default black
     const isSignupPage = useMatch('/signup');
     const isLoginPage = useMatch('/login');
+
+    const handleSignout = async () => {
+        try {
+            await logout({
+                token: localStorage.getItem("accessToken"),
+            }).unwrap();
+            dispatch(signout());
+            setIsOpen(!isOpen);
+        } catch (err) {
+            console.log(err)
+        }
+    };
 
     return (
         <div className={styles.menuContainer}>
@@ -59,7 +73,9 @@ export default function DropdownMenu() {
                                 </Link>
                             ) : (
                                 <span
-                                    onClick={() => { dispatch(signout()); setIsOpen(!isOpen); }} className={styles.logout}>
+                                    onClick={handleSignout}
+                                    className={styles.logout}
+                                >
                                     {variant.svg}
                                     {variant.name}
                                 </span>

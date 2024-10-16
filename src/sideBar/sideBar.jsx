@@ -14,13 +14,13 @@ export default function SideBar() {
 
   const authenticated = useSelector((state) => state.auth.authenticated);
   const userId = localStorage.getItem("userId");
-  const { data: visitedPubs, refetch } = useGetVisitedPubsQuery(authenticated ? userId : skipToken);
+  const { data: visitedPubs = [], refetch } = useGetVisitedPubsQuery(authenticated ? userId : skipToken);
 
   const visited = (pub) => {
-    if (!visitedPubs) {
+    if (visitedPubs.length === 0) {
       return false;
     }
-    return visitedPubs.some((visitedPub) => visitedPub.pubDto.id === pub.id);
+    return visitedPubs.some((visitedPub) => visitedPub.pubId === pub.id);
   };
 
   return (

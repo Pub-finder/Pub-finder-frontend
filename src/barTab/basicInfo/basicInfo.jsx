@@ -14,28 +14,27 @@ export default function BasicInfo({ pub, userId = null, visited = false }) {
     const [hasVisited, setHasVisited] = useState(visited);
 
     const handleVisit = async () => {
-        if (hasVisited) {
-            try {
+        const username = localStorage.getItem("username");
+
+        try {
+            if (hasVisited) {
                 await deleteVisit({
                     pubId: pub.id,
                     userId: userId
                 }).unwrap();
-                console.log(`User ${user} has un visited Pub ${pub.name}`)
-            } catch (err) {
-                console.log(err)
-            }
-        } else {
-            try {
+                console.log(`User ${username} has un visited Pub ${pub.name}`) // add dialog window
+            } else {
                 await visitedPub({
                     pubId: pub.id,
-                    userId: userId
+                    userId: userId,
+                    username: username
                 }).unwrap();
-                console.log(`User ${user} has visited Pub ${pub.name}`)
-            } catch (err) {
-                console.log(err)
+                console.log(`User ${username} has visited Pub ${pub.name}`) // add dialog window
             }
+            setHasVisited(!hasVisited);
+        } catch (err) {
+            console.log(err)
         }
-        setHasVisited(!hasVisited);
     };
 
     return (

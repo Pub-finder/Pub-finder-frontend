@@ -39,7 +39,12 @@ export default function Register() {
 
     try {
       const response = await signup(formInput).unwrap();
-      dispatch(setCredentials({ response }));
+      dispatch(setCredentials({
+          userId: response.userId,
+          username: formInput.username,
+          accessToken: response.accessToken,
+          refreshToken: response.refreshToken
+      }));
 
       setFormInput({
         firstname: "",
