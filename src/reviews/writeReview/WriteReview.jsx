@@ -4,15 +4,33 @@ import { motion } from "framer-motion"
 import styles from './style.module.scss';
 import { useReviewMutation } from "../../redux/slices/apiSlices/reviewApiSlice";
 
-export default function WriteReview({ toggleDialog, pub }) {
+const convertEnumToInt = (enumType) => {
+    if (enumType == null)
+        return 50;
+
+    switch (enumType) {
+        case 'QUITE':
+            return 10;
+        case 'PLEASANT':
+            return 30;
+        case 'AVERAGE':
+            return 50;
+        case 'LOUD':
+            return 70;
+        default:
+            return 100;
+    }
+};
+
+export default function WriteReview({ toggleDialog, review=null, pub }) {
     const [reviewPub] = useReviewMutation();
 
     const [reviewInput, setReviewInput] = useState({
-        rating: null,
-        toiletsRating: null,
-        serviceRating: null,
-        volume: null,
-        review: "",
+        rating: review?.rating || null,
+        toiletsRating: review?.toilets || null,
+        serviceRating: review?.service || null,
+        volume: convertEnumToInt(review?.volume),
+        review: review?.review || null,
     });
 
     const handleUserInput = (name, value) => {
@@ -51,7 +69,7 @@ export default function WriteReview({ toggleDialog, pub }) {
         <div
             className={styles.writeReviewContainer}
         >
-            <h1>Make your review for {pub.name}</h1>
+            <h3>Make your review for {pub.name}</h3>
 
             <div className={styles.ratingSection}>
                 Overall Rating:
@@ -88,7 +106,7 @@ export default function WriteReview({ toggleDialog, pub }) {
                 <Slider
                     color="blue"
                     size="md"
-                    value={50}
+                    value={reviewInput.volume}
                     onChange={(event) => handleUserInput("volume", Math.floor(event.target.value))}
                 />
             </div>

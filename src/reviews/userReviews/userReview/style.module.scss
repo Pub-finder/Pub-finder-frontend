@@ -1,0 +1,37 @@
+.userReview {
+    background-color: #625b4d;
+    padding: 1rem;
+    border-radius: 0.75rem;
+
+    h5 {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.375;
+        letter-spacing: normal;
+        font-family: 'Oswald', sans-serif;
+        width: 19rem;
+    }
+
+    .loaderContainer {
+        height: 65%;
+    }
+
+    .showBar {
+        color: blue;
+    }
+
+    button {
+        font-family: 'Oswald', sans-serif;
+        color: white;
+    }
+
+    dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        width: 80%;
+    }
+}

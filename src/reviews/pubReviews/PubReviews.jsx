@@ -18,7 +18,6 @@ export default function PubReviews({ pub }) {
         if (!dialogRef.current) {
             return
         }
-
         dialogRef.current.hasAttribute("open") ? dialogRef.current.close() : dialogRef.current.showModal()
     }
 
