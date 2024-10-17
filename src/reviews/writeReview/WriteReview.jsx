@@ -22,15 +22,15 @@ const convertEnumToInt = (enumType) => {
     }
 };
 
-export default function WriteReview({ toggleDialog, review=null, pub }) {
+export default function WriteReview({ toggleDialog, preReview=null, pub }) {
     const [reviewPub] = useReviewMutation();
 
     const [reviewInput, setReviewInput] = useState({
-        rating: review?.rating || null,
-        toiletsRating: review?.toilets || null,
-        serviceRating: review?.service || null,
-        volume: convertEnumToInt(review?.volume),
-        review: review?.review || null,
+        rating: preReview?.rating || null,
+        toiletsRating: preReview?.toilets || null,
+        serviceRating: preReview?.service || null,
+        volume: convertEnumToInt(preReview?.volume),
+        review: preReview?.review || null,
     });
 
     const handleUserInput = (name, value) => {

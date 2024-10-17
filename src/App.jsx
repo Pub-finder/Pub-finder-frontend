@@ -9,6 +9,7 @@ import UserReviews from "./reviews/userReviews/UserReviews";
 import Menu from "./menu/Menu";
 
 export default function App() {
+    console.log("userId: ", localStorage.getItem("userId"));
   return (
     <div>
         <Menu />

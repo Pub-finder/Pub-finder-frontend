@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useGetReviewsForPubQuery } from "../../redux/slices/apiSlices/reviewApiSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { MdOutlineReviews } from "react-icons/md";
@@ -10,9 +10,9 @@ import Review from "../Review";
 
 export default function PubReviews({ pub }) {
     const { data: reviews = [], isSuccess, isLoading, isError } = useGetReviewsForPubQuery(pub ? pub.id : skipToken);
-
     const body = useRef(null);
     const dialogRef = useRef(null);
+    const userId = localStorage.getItem("userId");
 
     function toggleDialog(event, info) {
         if (!dialogRef.current) {
@@ -28,7 +28,6 @@ export default function PubReviews({ pub }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                console.log("make review");
                 toggleDialog();
               }}
             >
@@ -41,21 +40,23 @@ export default function PubReviews({ pub }) {
                 <p className={styles.errorMsg}>There is no reviews for this pubs yet.</p>
             )}
             {isSuccess && (
-                reviews.map((review) => (
-                    <Review key={review.id} review={review} />
-                ))
-            )}
+                <>
+                    {reviews.map((review) => (
+                        <Review key={review.id} review={review} />
+                    ))}
 
-            <dialog
-                ref={dialogRef}
-                onClick={(e) => {
-                    if (e.currentTarget === e.target) {
-                        toggleDialog();
-                    }
-                }}
-            >
-                <WriteReview toggleDialog={toggleDialog} pub={pub} />
-            </dialog>
+                     <dialog
+                         ref={dialogRef}
+                         onClick={(e) => {
+                             if (e.currentTarget === e.target) {
+                                 toggleDialog();
+                             }
+                         }}
+                     >
+                         <WriteReview toggleDialog={toggleDialog} pub={pub} preReview={reviews.find((review) => review.userId == userId)} />
+                     </dialog>
+                </>
+            )}
         </div>
     );
 }

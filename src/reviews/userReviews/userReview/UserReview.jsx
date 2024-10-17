@@ -33,27 +33,27 @@ export default function UserReview({review}) {
             <Review key={review.id} review={review} />
             {isSuccess &&
                 <>
-                 <motion.button
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
-                     onClick={() => {
-                         console.log("edit review");
-                         toggleDialog();
-                     }}
-                 >
-                     Edit Review
-                 </motion.button>
+                     <motion.button
+                         whileHover={{ scale: 1.05 }}
+                         whileTap={{ scale: 0.95 }}
+                         onClick={() => {
+                             console.log("edit review");
+                             toggleDialog();
+                         }}
+                     >
+                         Edit Review
+                     </motion.button>
 
-                <dialog
-                    ref={dialogRef}
-                    onClick={(e) => {
-                        if (e.currentTarget === e.target) {
-                            toggleDialog();
-                        }
-                    }}
-                >
-                    <WriteReview toggleDialog={toggleDialog} review={review} pub={pub} />
-                </dialog>
+                    <dialog
+                        ref={dialogRef}
+                        onClick={(e) => {
+                            if (e.currentTarget === e.target) {
+                                toggleDialog();
+                            }
+                        }}
+                    >
+                        <WriteReview toggleDialog={toggleDialog} preReview={review} pub={pub} />
+                    </dialog>
                 </>
             }
         </div>
