@@ -6,10 +6,10 @@ import Loader from "../../utils/loader/TextSpinnerLoader";
 import styles from './style.module.scss';
 import { motion } from "framer-motion"
 import WriteReview from "../writeReview/WriteReview";
+import Review from "../Review";
 
 export default function PubReviews({ pub }) {
     const { data: reviews = [], isSuccess, isLoading, isError } = useGetReviewsForPubQuery(pub ? pub.id : skipToken);
-    console.log(reviews);
 
     const body = useRef(null);
     const dialogRef = useRef(null);
