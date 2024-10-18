@@ -8,7 +8,6 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 
-
     .header {
         h2 {
             font-family: 'Times New Roman', serif;
@@ -35,7 +34,9 @@
     }
 
     .reviewText {
+        margin-left: 1rem;
         font-family: 'Times New Roman', serif;
+        font-size: 15px;
     }
 
     .showMore {
@@ -43,6 +44,9 @@
         font-size: 0.875rem;
         background-color: transparent;
         color: white;
+        ont-family: 'Times New Roman', serif;
+        font-size: 15px;
+        cursor: pointer;
     }
 
 }

@@ -7,9 +7,10 @@ import { motion } from "framer-motion"
 export default function Review({ review }) {
     const isMoreToShow = review?.toilets !== 0 || review?.service !== 0 || review?.volume !== null || review?.review?.length !== 0;
     const [showMore, setShowMore] = useState(false);
-
+    console.log("review: ", review);
+    console.log("condition: ", review?.review == null);
     return (
-        <div className={styles.reviewContainer}>
+        <div key={review.id} className={styles.reviewContainer}>
             <div className={styles.header}>
                 <h2>{review.username}</h2>
                 <p>{formatTimestamp(review.reviewDate)}</p>
@@ -28,7 +29,7 @@ export default function Review({ review }) {
                             </p>
                         </div>
                     )}
-                    {review?.review?.length !== 0 && (
+                    {review?.review !== null && (
                         <p className={styles.reviewText}>
                             {review.review}
                         </p>
@@ -38,8 +39,8 @@ export default function Review({ review }) {
 
             {isMoreToShow && (
                 <motion.p
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                     onClick={() => {
                         setShowMore(!showMore);
                     }}

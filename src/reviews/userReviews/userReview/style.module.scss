@@ -2,6 +2,7 @@
     background-color: #625b4d;
     padding: 1rem;
     border-radius: 0.75rem;
+    height: fit-content;
 
     h5 {
         display: block;
@@ -19,11 +20,6 @@
 
     .showBar {
         color: blue;
-    }
-
-    button {
-        font-family: 'Oswald', sans-serif;
-        color: white;
     }
 
     dialog {

@@ -74,8 +74,8 @@ export default function WriteReview({ toggleDialog, preReview=null, pub }) {
             <div className={styles.ratingSection}>
                 Overall Rating:
                 <Rating
-                    unratedColor="blue"
-                    ratedColor="blue"
+                    unratedColor="yellow"
+                    ratedColor="yellow"
                     value={reviewInput.rating}
                     onChange={(rating) => handleUserInput("rating", rating)}
                 />
@@ -84,8 +84,8 @@ export default function WriteReview({ toggleDialog, preReview=null, pub }) {
             <div className={styles.ratingSection}>
                 Toilets Rating:
                 <Rating
-                    unratedColor="blue"
-                    ratedColor="blue"
+                    unratedColor="yellow"
+                    ratedColor="yellow"
                     value={reviewInput.toiletsRating}
                     onChange={(rating) => handleUserInput("toiletsRating", rating)}
                 />
@@ -94,8 +94,8 @@ export default function WriteReview({ toggleDialog, preReview=null, pub }) {
             <div className={styles.ratingSection}>
                 Service Rating:
                 <Rating
-                    unratedColor="blue"
-                    ratedColor="blue"
+                    unratedColor="yellow"
+                    ratedColor="yellow"
                     value={reviewInput.serviceRating}
                     onChange={(rating) => handleUserInput("serviceRating", rating)}
                 />
@@ -104,7 +104,7 @@ export default function WriteReview({ toggleDialog, preReview=null, pub }) {
             <div className={styles.ratingSection}>
                 Volume
                 <Slider
-                    color="blue"
+                    color="yellow"
                     size="md"
                     value={reviewInput.volume}
                     onChange={(event) => handleUserInput("volume", Math.floor(event.target.value))}
