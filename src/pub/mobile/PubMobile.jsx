@@ -3,11 +3,9 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer";
 
 import { useDispatch } from "react-redux";
-import { focusOnPub } from "../../redux/slices/pubSlice";
+import { focusOnPub } from "@redux/slices/pubSlice";
 import styles from './style.module.scss';
-import { useDeleteVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
-import { useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
-
+import { useDeleteVisitMutation, useVisitMutation } from "@redux/slices/apiSlices/visitApiSlice";
 import BasicInfo from "../basicInfo/basicInfo";
 import MoreInfo from "../moreInfo/MoreInfo";
 

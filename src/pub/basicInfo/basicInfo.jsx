@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import { useDeleteVisitMutation, useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
-import { correctEncoding, formatLocation, formatOpeningHoursForToday } from "../../utils/utils";
+import { useDeleteVisitMutation, useVisitMutation } from "@redux/slices/apiSlices/visitApiSlice";
+import { correctEncoding, formatLocation, formatOpeningHoursForToday } from "@utils/utils";
 import { Rating } from "@material-tailwind/react";
 
 import { WiTime1 } from "react-icons/wi";

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { Rating, Slider } from "@material-tailwind/react";
 import { motion } from "framer-motion"
 import styles from './style.module.scss';
-import { useReviewMutation } from "../../redux/slices/apiSlices/reviewApiSlice";
-import { useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
-import { convertEnumToInt } from "../../utils/utils"
+import { useReviewMutation } from "@redux/slices/apiSlices/reviewApiSlice";
+import { useVisitMutation } from "@redux/slices/apiSlices/visitApiSlice";
+import { convertEnumToInt } from "@utils/utils"
 
 export default function WriteReview({ toggleDialog, preReview=null, pub }) {
     const [reviewPub] = useReviewMutation();

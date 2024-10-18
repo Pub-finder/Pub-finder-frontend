@@ -2,13 +2,13 @@ import {useState} from "react";
 import { useMatch } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 import { motion, Variants } from "framer-motion"
-import { menuVariants, itemVariants } from "./variants"
+import { menuVariants, itemVariants } from "./utils/variants"
+import { authenticatedMenu, unauthenticatedMenu } from "./utils/menus";
 import styles from './style.module.scss';
 import { Link } from "react-router-dom";
-import { authenticatedMenu, unauthenticatedMenu } from "./menus";
 import { useSelector, useDispatch } from 'react-redux';
-import { signout } from "../redux/slices/authSlice";
-import { useLogoutMutation } from "../redux/slices/apiSlices/authApiSlice";
+import { signout } from "@redux/slices/authSlice";
+import { useLogoutMutation } from "@redux/slices/apiSlices/authApiSlice";
 
 export default function DropdownMenu() {
     const dispatch = useDispatch();

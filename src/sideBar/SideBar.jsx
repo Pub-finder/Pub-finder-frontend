@@ -1,11 +1,11 @@
 import { React, useEffect, useState } from "react";
 import styles from './style.module.scss';
 import { useSelector } from "react-redux";
-import BarTab from "../barTab/barTab";
-import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
-import { useGetVisitedPubsQuery } from "../redux/slices/apiSlices/visitApiSlice";
+import Pub from "@pub/Pub";
+import { useGetPubsQuery } from "@redux/slices/apiSlices/pubApiSlice";
+import { useGetVisitedPubsQuery } from "@redux/slices/apiSlices/visitApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query';
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 
 export default function SideBar() {
   const geocode = useSelector((state) => state.pubs.geocode);
@@ -29,7 +29,7 @@ export default function SideBar() {
         {isError && <p className={styles.errorMsg}>There was an unexpected error.</p>}
         {searchedPub.id && (
             <div className="snap-center">
-                <BarTab
+                <Pub
                 key={searchedPub.id}
                 pub={searchedPub}
                 userId={userId}
@@ -42,7 +42,7 @@ export default function SideBar() {
         {isSuccess && pubs.map((pub) => (
             <div className="snap-center" key={pub.id}>
                 {searchedPub.id != pub.id &&
-                    <BarTab
+                    <Pub
                         pub={pub}
                         userId={userId}
                         visited={visited(pub)}

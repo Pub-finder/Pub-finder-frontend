@@ -2,8 +2,8 @@ import { React, useState } from "react";
 import { motion } from "framer-motion"
 
 import { useDispatch } from "react-redux";
-import { focusOnPub } from "../redux/slices/pubSlice";
-import { useGetRatingForPubQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { focusOnPub } from "@redux/slices/pubSlice";
+import { useGetRatingForPubQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import BasicInfo from "./basicInfo/basicInfo";
 import MoreInfo from "./moreInfo/MoreInfo";
 import Reviews from "../reviews/pubReviews/PubReviews";

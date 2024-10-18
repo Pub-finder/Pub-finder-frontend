@@ -1,7 +1,7 @@
-import { useGetAdditionalInfoQuery } from "../../redux/slices/apiSlices/pubApiSlice";
+import { useGetAdditionalInfoQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import styles from './style.module.scss';
-import Loader from "../../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import { FaGlobe, FaToilet, FaChair } from "react-icons/fa";
 import { PiWheelchairFill } from "react-icons/pi";
 import { GrCheckmark } from "react-icons/gr";
