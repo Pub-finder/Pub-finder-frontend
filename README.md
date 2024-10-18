@@ -15,4 +15,4 @@ A web application designed to help users find pubs near them and display them on
 - React: A JavaScript library for building user interfaces.
 - Leaflet: An open-source JavaScript library for interactive maps.
 - JavaScript: The programming language used for client-side functionality.
-- CSS: For styling the user interface.
+- SCSS: For styling the user interface.
