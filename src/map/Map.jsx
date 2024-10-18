@@ -12,15 +12,11 @@ import {
   useMap
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-
 import { correctEncoding } from "@utils/utils";
 import { useGetPubsQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query/react';
-import { beerIcon, userIcon } from "./icons";
-
-import LocationMarker from "./LocationMarker";
-import FocusOnLocation from "./FocusOnLocation";
-import Layer from "./Layer";
+import { beerIcon, userIcon } from "./utils/icons";
+import { LocationMarker, FocusOnLocation, Layer } from "./utils/mapUtils";
 import Loader from "@utils/loader/TextSpinnerLoader";
 
 

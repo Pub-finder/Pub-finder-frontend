@@ -1,5 +1,5 @@
 import { React } from "react";
-import Map from "../map/map";
+import Map from "../map/Map";
 import SideBar from "../sideBar/sideBar";
 import { MdOutlineLayers } from "react-icons/md";
 import SearchBar from "../searchBar/searchBar";
