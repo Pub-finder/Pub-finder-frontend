@@ -2,17 +2,74 @@ import { useGetAdditionalInfoQuery } from "../../redux/slices/apiSlices/pubApiSl
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import styles from './style.module.scss';
 import Loader from "../../utils/loader/TextSpinnerLoader";
-import InfoRender from "./InfoRender";
+import { FaGlobe, FaToilet, FaChair } from "react-icons/fa";
+import { PiWheelchairFill } from "react-icons/pi";
+import { GrCheckmark } from "react-icons/gr";
+import { RxCross1 } from "react-icons/rx";
+import { ImSpinner2 } from "react-icons/im";
 
 export default function Info({ pub, inView = false, mobile = false }) {
     const { data: info, isLoading, isError, isSuccess } = useGetAdditionalInfoQuery(inView ? pub.id : skipToken);
 
+    const AccessibilityInfoItem = ({ icon: Icon, label, value }) => (
+        <li>
+            <Icon />
+            <span>
+                {label}: {value ? ' Yes' : ' No'}
+            </span>
+        </li>
+    );
+
     return (
-        <div className={styles.infoTab}>
+        <div className={styles.moreInfoContainer}>
             {!mobile && <hr/>}
             {isLoading && <Loader />}
             {isError && <p>There was an unexpected error</p>}
-            {isSuccess && <InfoRender description={pub.description} info={info} /> }
+            {isSuccess && (
+                <>
+                    {pub.description &&
+                        <p>{pub.description}</p>
+                    }
+
+                    <li>
+                        <FaToilet />
+                        {info.washroom ? <GrCheckmark /> : <RxCross1 />}
+                    </li>
+
+                    {info.website && (
+                        <li>
+                            <FaGlobe />
+                            <a href={info.website} target="_blank" rel="noopener noreferrer">
+                                {info.website}
+                            </a>
+                        </li>
+                    )}
+
+                    {info.outDoorSeating && (
+                        <li>
+                            <FaChair />
+                            <span>Outdoor Seating: {info.outDoorSeating ? ' Yes' : ' No'}</span>
+                        </li>
+                    )}
+
+                    <AccessibilityInfoItem
+                        icon={PiWheelchairFill}
+                        label="Accessible Seating"
+                        value={info.accessibility.accessibleSeating}
+                    />
+                    <AccessibilityInfoItem
+                        icon={PiWheelchairFill}
+                        label="Accessible Entrance"
+                        value={info.accessibility.accessibleEntrance}
+                    />
+                    <AccessibilityInfoItem
+                        icon={PiWheelchairFill}
+                        label="Accessible Parking"
+                        value={info.accessibility.accessibleParking}
+                    />
+                </>
+            )}
         </div>
     );
 }
+

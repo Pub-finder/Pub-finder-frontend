@@ -3,13 +3,15 @@ import { motion } from "framer-motion"
 
 import { useDispatch } from "react-redux";
 import { focusOnPub } from "../redux/slices/pubSlice";
-
+import { useGetRatingForPubQuery } from "../redux/slices/apiSlices/pubApiSlice";
 import BasicInfo from "./basicInfo/basicInfo";
 import MoreInfo from "./moreInfo/moreInfo";
 import Reviews from "../reviews/pubReviews/PubReviews";
 import styles from './style.module.scss';
 
 export default function BarTab({ pub, userId = null, visited = false, isSearchedPub = false, mobile = false }) {
+  const { data: ratings, isLoading, isError, isSuccess } = useGetRatingForPubQuery(pub.id ? pub.id : skipToken);
+    console.log(ratings);
   const dispatch = useDispatch();
   const [expandedPubId, setExpandedPubId] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
@@ -29,7 +31,7 @@ export default function BarTab({ pub, userId = null, visited = false, isSearched
       tabIndex="0"
       key={pub.id}
     >
-        <BasicInfo pub={pub} userId={userId} visited={visited} />
+        <BasicInfo pub={pub} userId={userId} visited={visited} avgRating={ratings?.rating} />
         <Buttons showInfo={showInfo} showReviews={showReviews} setShowInfo={setShowInfo} setShowReviews={setShowReviews} />
         {showInfo && <MoreInfo pub={pub} inView={showInfo} />}
         {showReviews && <Reviews pub={pub} />}
