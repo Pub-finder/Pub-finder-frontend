@@ -5,7 +5,7 @@ import { useSearchForPubQuery, useGetPubQuery, useGetPubsQuery } from "@redux/sl
 import { skipToken } from "@reduxjs/toolkit/query";
 import { correctEncoding } from "@utils/utils";
 import { setPub } from "@redux/slices/pubSlice";
-import { stopWords } from "./stopWords";
+import { stopWords } from "./utils/stopWords";
 import styles from './style.module.scss';
 
 export default function SearchBar() {
