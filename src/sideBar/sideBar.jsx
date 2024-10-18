@@ -14,7 +14,7 @@ export default function SideBar() {
 
   const authenticated = useSelector((state) => state.auth.authenticated);
   const userId = localStorage.getItem("userId");
-  const { data: visitedPubs = [], refetch } = useGetVisitedPubsQuery(authenticated ? userId : skipToken);
+  const { data: visitedPubs = [] } = useGetVisitedPubsQuery(authenticated ? userId : skipToken);
 
   const visited = (pub) => {
     if (visitedPubs.length === 0) {

@@ -1,9 +1,12 @@
 .barTab {
   max-width: 26rem;
+  display: flex;
   flex-direction: column;
   border-radius: 0.75rem;
   color: #fffaf0;
+  gap: 0.5rem;
   margin: 0.5rem 0;
+  padding: 0.2rem 0rem;
   cursor: pointer;
   transition: ease-in-out 0.1s;
   background-color: #625b4d;

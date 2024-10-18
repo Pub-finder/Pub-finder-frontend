@@ -9,7 +9,7 @@ import { useDeleteVisitMutation } from "../../redux/slices/apiSlices/visitApiSli
 import { useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
 
 import BasicInfo from "../basicInfo/basicInfo";
-import MoreInfo from "../moreInfo/moreInfo";
+import MoreInfo from "../moreInfo/MoreInfo";
 
 export default function BarTab({ pub, user = false, visited, refetch, isSearchedPub = false }) {
   const dispatch = useDispatch();

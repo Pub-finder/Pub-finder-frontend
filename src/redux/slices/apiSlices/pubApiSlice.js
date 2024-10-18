@@ -38,13 +38,22 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 },
             })
         }),
+        getRatingForPub: builder.query({
+            query: (id) => ({
+                url: `/review/rating/${id}`,
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        }),
     })
 })
 
 export const {
     useGetPubsQuery,
     useGetPubQuery,
-    useGetReviewsForPubQuery,
     useSearchForPubQuery,
     useGetAdditionalInfoQuery,
+    useGetRatingForPubQuery,
 } = apiSlice
