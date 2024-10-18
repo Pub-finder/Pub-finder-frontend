@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useCallback } from "react";
+import { React, useState } from "react";
 import { motion } from "framer-motion"
 
 import { useDispatch } from "react-redux";
@@ -6,6 +6,7 @@ import { focusOnPub } from "../redux/slices/pubSlice";
 
 import BasicInfo from "./basicInfo/basicInfo";
 import MoreInfo from "./moreInfo/moreInfo";
+import Reviews from "../reviews/pubReviews/PubReviews";
 import styles from './style.module.scss';
 
 export default function BarTab({ pub, userId = null, visited = false, isSearchedPub = false, mobile = false }) {
@@ -31,7 +32,7 @@ export default function BarTab({ pub, userId = null, visited = false, isSearched
         <BasicInfo pub={pub} userId={userId} visited={visited} />
         <Buttons showInfo={showInfo} showReviews={showReviews} setShowInfo={setShowInfo} setShowReviews={setShowReviews} />
         {showInfo && <MoreInfo pub={pub} inView={showInfo} />}
-        {showReviews && <p> under construction </p>}
+        {showReviews && <Reviews pub={pub} />}
     </div>
   );
 }

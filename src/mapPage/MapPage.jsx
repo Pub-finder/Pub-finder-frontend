@@ -11,7 +11,7 @@ import BottomSheet from "../bottomBar/BottomSheet/BottomSheet";
 import { toggleLayer } from "../redux/slices/layerSlice";
 import Menu from "../menu/Menu";
 
-export default function StartPage() {
+export default function MapPage() {
   const dispatch = useDispatch();
   const isMobile = useIsMobile();
 

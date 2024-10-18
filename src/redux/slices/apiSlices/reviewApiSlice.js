@@ -3,15 +3,18 @@ import { apiSlice } from "./apiSlice";
 export const reviewApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         review: builder.mutation({
-            query: ({ review, pubId, username }) => ({
-                url: `/review/save/${pubId}/${username}`,
+            query: (review) => ({
+                url: `/review/save`,
                 method: 'POST',
                 body: {
-                    'review': review.review,
+                    'pubId': review.pubId,
+                    'userId': review.userId,
+                    'username': review.username,
                     'rating': review.rating,
-                    'toilets': review.toiletsRating,
+                    'toilets': review.toilets,
+                    'service': review.service,
                     'volume': review.volume,
-                    'service': review.serviceRating,
+                    'review': review.review
                 },
                 headers: {
                   "Content-Type": "application/json",
@@ -44,6 +47,24 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
                 },
             })
         }),
+        getReviewsForPub: builder.query({
+            query: (pubId) => ({
+                url: `/review/reviews/pub/${pubId}`,
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        }),
+        getUserReviews: builder.query({
+            query: (userId) => ({
+                url: `/review/reviews/user/${userId}`,
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        }),
     })
 })
 
@@ -51,4 +72,6 @@ export const {
     useReviewMutation,
     useDeleteReviewMutation,
     useUpdateReviewMutation,
+    useGetReviewsForPubQuery,
+    useGetUserReviewsQuery
 } = apiSlice

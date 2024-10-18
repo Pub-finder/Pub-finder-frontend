@@ -50,3 +50,21 @@ const formatTime = (timeString) => {
     const [hours, minutes] = timeString.split(':');
     return `${hours}:${minutes}`;
 };
+
+export const convertEnumToInt = (enumType) => {
+    if (enumType == null)
+        return 50;
+
+    switch (enumType) {
+        case 'QUITE':
+            return 10;
+        case 'PLEASANT':
+            return 30;
+        case 'AVERAGE':
+            return 50;
+        case 'LOUD':
+            return 70;
+        default:
+            return 100;
+    }
+};

@@ -26,7 +26,7 @@ export default function SideBar() {
   return (
     <div className={styles.sideBar}>
         {isLoading && <Loader />}
-        {isError && <p>There was an unexpected error.</p>}
+        {isError && <p className={styles.errorMsg}>There was an unexpected error.</p>}
         {searchedPub.id && (
             <div className="snap-center">
                 <BarTab
