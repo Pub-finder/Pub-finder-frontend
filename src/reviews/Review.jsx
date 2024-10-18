@@ -7,8 +7,7 @@ import { motion } from "framer-motion"
 export default function Review({ review }) {
     const isMoreToShow = review?.toilets !== 0 || review?.service !== 0 || review?.volume !== null || review?.review?.length !== 0;
     const [showMore, setShowMore] = useState(false);
-    console.log("review: ", review);
-    console.log("condition: ", review?.review == null);
+
     return (
         <div key={review.id} className={styles.reviewContainer}>
             <div className={styles.header}>

@@ -3,27 +3,12 @@ import { Rating, Slider } from "@material-tailwind/react";
 import { motion } from "framer-motion"
 import styles from './style.module.scss';
 import { useReviewMutation } from "../../redux/slices/apiSlices/reviewApiSlice";
-
-const convertEnumToInt = (enumType) => {
-    if (enumType == null)
-        return 50;
-
-    switch (enumType) {
-        case 'QUITE':
-            return 10;
-        case 'PLEASANT':
-            return 30;
-        case 'AVERAGE':
-            return 50;
-        case 'LOUD':
-            return 70;
-        default:
-            return 100;
-    }
-};
+import { useVisitMutation } from "../../redux/slices/apiSlices/visitApiSlice";
+import { convertEnumToInt } from "../../utils/utils"
 
 export default function WriteReview({ toggleDialog, preReview=null, pub }) {
     const [reviewPub] = useReviewMutation();
+    const [visitedPub] = useVisitMutation();
 
     const [reviewInput, setReviewInput] = useState({
         rating: preReview?.rating || null,
@@ -56,6 +41,12 @@ export default function WriteReview({ toggleDialog, preReview=null, pub }) {
                     service: reviewInput.serviceRating,
                     volume: reviewInput.volume,
                     review: reviewInput.review
+                });
+
+                await visitedPub({
+                    pubId: pub.id,
+                    userId: userId,
+                    username: username
                 });
             }
 
