@@ -19,12 +19,14 @@
             font-family: 'Times New Roman', serif;
             font-size: 0.1rem;
             margin-left: 0.25rem;
+            text-align: left;
         }
     }
 
-    .reviewRating {
+    .rating {
         margin-left: 1rem;
         font-family: 'Times New Roman', serif;
+        font-size: 15px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -32,15 +34,7 @@
         color: white;
     }
 
-    .volumeText {
-        margin-left: 1rem;
-        font-family: 'Times New Roman', serif;
-        font-weight: 500;
-        color: white;
-    }
-
     .reviewText {
-        margin-left: 1rem;
         font-family: 'Times New Roman', serif;
     }
 

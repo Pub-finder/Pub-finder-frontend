@@ -5,7 +5,7 @@ import { formatTimestamp } from "../utils/utils";
 import { motion } from "framer-motion"
 
 export default function Review({ review }) {
-    const isMoreToShow = review.toilets !== 0 || review.service !== 0 || review.volume !== null || review.review.length !== 0;
+    const isMoreToShow = review?.toilets !== 0 || review?.service !== 0 || review?.volume !== null || review?.review?.length !== 0;
     const [showMore, setShowMore] = useState(false);
 
     return (
@@ -18,14 +18,17 @@ export default function Review({ review }) {
 
             {showMore && (
                 <>
-                    {review.toilets !== 0 && <ReviewRating label="Toilets" value={review.toilets} />}
-                    {review.service !== 0 && <ReviewRating label="Service" value={review.service} />}
-                    {review.volume !== null && (
-                        <p className={styles.volumeText} style={{ color: "blue-gray" }}>
-                            Volume: {review.volume}
-                        </p>
+                    {review?.toilets !== 0 && <ReviewRating label="Toilets" value={review.toilets} />}
+                    {review?.service !== 0 && <ReviewRating label="Service" value={review.service} />}
+                    {review?.volume !== null && (
+                        <div className={styles.rating}>
+                            Volume:
+                            <p>
+                                {review.volume[0]}{review.volume.substring(1, review.volume.length).toLowerCase()}
+                            </p>
+                        </div>
                     )}
-                    {review.review.length !== 0 && (
+                    {review?.review?.length !== 0 && (
                         <p className={styles.reviewText}>
                             {review.review}
                         </p>
@@ -51,7 +54,7 @@ export default function Review({ review }) {
 
 function ReviewRating({ label, value }) {
     return (
-        <div className={styles.reviewRating}>
+        <div className={styles.rating}>
             {label}:
             <Rating value={value} readonly />
         </div>
