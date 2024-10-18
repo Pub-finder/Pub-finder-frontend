@@ -77,8 +77,6 @@ export default function BasicInfo({ pub, userId = null, visited = false, avgRati
                 {formatLocation(pub.location)}
               </p>
             </li>
-
-
         </div>
     );
 }
