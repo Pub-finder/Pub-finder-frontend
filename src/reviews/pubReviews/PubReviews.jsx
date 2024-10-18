@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
-import { useGetReviewsForPubQuery } from "../../redux/slices/apiSlices/reviewApiSlice";
+import { useGetReviewsForPubQuery } from "@redux/slices/apiSlices/reviewApiSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { MdOutlineReviews } from "react-icons/md";
-import Loader from "../../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import styles from './style.module.scss';
 import { motion } from "framer-motion"
 import WriteReview from "../writeReview/WriteReview";

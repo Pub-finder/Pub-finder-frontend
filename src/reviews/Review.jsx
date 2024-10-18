@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Rating } from "@material-tailwind/react";
 import styles from './style.module.scss';
-import { formatTimestamp } from "../utils/utils";
+import { formatTimestamp } from "@utils/utils";
 import { motion } from "framer-motion"
 
 export default function Review({ review }) {

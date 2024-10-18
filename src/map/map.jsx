@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setLocation } from "../redux/slices/pubsSlice";
+import { setLocation } from "@redux/slices/pubsSlice";
 import "./Map.css";
 import "leaflet/dist/leaflet.css";
 import {
@@ -13,15 +13,15 @@ import {
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
-import { correctEncoding } from "../utils/utils";
-import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { correctEncoding } from "@utils/utils";
+import { useGetPubsQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import { beerIcon, userIcon } from "./icons";
 
 import LocationMarker from "./LocationMarker";
 import FocusOnLocation from "./FocusOnLocation";
 import Layer from "./Layer";
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 
 
 export default function Map() {

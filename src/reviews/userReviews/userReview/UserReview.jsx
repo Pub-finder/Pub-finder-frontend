@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
-import { useGetPubQuery } from "../../../redux/slices/apiSlices/pubApiSlice";
+import { useGetPubQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
 import styles from './style.module.scss';
 import Review from "../../Review";
-import Loader from "../../../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import { motion } from "framer-motion"
 import WriteReview from "../../writeReview/WriteReview";
 import BarTab from "../../../barTab/barTab";

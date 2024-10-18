@@ -1,9 +1,8 @@
-import { useGetVisitedPubsQuery } from "../redux/slices/apiSlices/visitApiSlice";
+import { useGetVisitedPubsQuery } from "@redux/slices/apiSlices/visitApiSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import styles from './style.module.scss';
-import { formatTimestamp } from "../utils/utils";
-import { mockPubs } from "../utils/mockData";
+import { formatTimestamp } from "@utils/utils";
 import VisitedPub from "./VisitedPub";
 
 export default function VisitedPubs() {

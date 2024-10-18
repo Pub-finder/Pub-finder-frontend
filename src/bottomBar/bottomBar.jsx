@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { focusOnPub } from "../redux/slices/pubSlice";
-import { useGetVisitedPubsQuery, useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
+import { focusOnPub } from "@redux/slices/pubSlice";
+import { useGetVisitedPubsQuery, useGetPubsQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query';
 
 import styles from './style.module.scss';
 import BarTab from "../barTab/mobile/barTabMobile";
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 
 export default function BottomBar() {
     const geocode = useSelector((state) => state.pubs.geocode);

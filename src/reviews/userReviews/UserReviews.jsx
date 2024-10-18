@@ -1,5 +1,5 @@
-import { useGetUserReviewsQuery } from "../../redux/slices/apiSlices/reviewApiSlice";
-import Loader from "../../utils/loader/TextSpinnerLoader";
+import { useGetUserReviewsQuery } from "@redux/slices/apiSlices/reviewApiSlice";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import { skipToken } from "@reduxjs/toolkit/query";
 import styles from './style.module.scss';
 import UserReview from "./userReview/UserReview";

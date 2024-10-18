@@ -7,8 +7,8 @@ import styles from './style.module.scss';
 import { Link } from "react-router-dom";
 import { authenticatedMenu, unauthenticatedMenu } from "./menus";
 import { useSelector, useDispatch } from 'react-redux';
-import { signout } from "../redux/slices/authSlice";
-import { useLogoutMutation } from "../redux/slices/apiSlices/authApiSlice";
+import { signout } from "@redux/slices/authSlice";
+import { useLogoutMutation } from "@redux/slices/apiSlices/authApiSlice";
 
 export default function DropdownMenu() {
     const dispatch = useDispatch();

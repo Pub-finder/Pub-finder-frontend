@@ -1,6 +1,6 @@
 import { useGetPubQuery } from "@redux/slices/apiSlices/pubApiSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 import BarTab from "../barTab/barTab";
 
 export default function VisitedPub({pubId, userId}) {

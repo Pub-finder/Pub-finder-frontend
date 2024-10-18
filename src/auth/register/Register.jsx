@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import AuthContainer from "../AuthContainer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import { useSignupMutation } from "../../redux/slices/apiSlices/authApiSlice";
-import { setCredentials } from "../../redux/slices/authSlice";
+import { useSignupMutation } from "@redux/slices/apiSlices/authApiSlice";
+import { setCredentials } from "@redux/slices/authSlice";
 import styles from '../style.module.scss';
 
 export default function Register() {

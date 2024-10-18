@@ -2,10 +2,10 @@ import { React, useEffect, useState } from "react";
 import styles from './style.module.scss';
 import { useSelector } from "react-redux";
 import BarTab from "../barTab/barTab";
-import { useGetPubsQuery } from "../redux/slices/apiSlices/pubApiSlice";
-import { useGetVisitedPubsQuery } from "../redux/slices/apiSlices/visitApiSlice";
+import { useGetPubsQuery } from "@redux/slices/apiSlices/pubApiSlice";
+import { useGetVisitedPubsQuery } from "@redux/slices/apiSlices/visitApiSlice";
 import { skipToken } from '@reduxjs/toolkit/query';
-import Loader from "../utils/loader/TextSpinnerLoader";
+import Loader from "@utils/loader/TextSpinnerLoader";
 
 export default function SideBar() {
   const geocode = useSelector((state) => state.pubs.geocode);
