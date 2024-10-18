@@ -47,7 +47,6 @@ export default function BasicInfo({ pub, userId = null, visited = false, avgRati
 
             {avgRating && (
                 <li className={styles.rating}>
-                    {avgRating}
                     <Rating value={avgRating} readonly />
                 </li>
             )}

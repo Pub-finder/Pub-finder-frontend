@@ -11,6 +11,17 @@
         margin-bottom: 0.5rem;
     }
 
+    .avgRating {
+        display: flex;
+        flex-direction: row;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.625;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
     p {
         display: block;
         font-family: 'Oswald', sans-serif;

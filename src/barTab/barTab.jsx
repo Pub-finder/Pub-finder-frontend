@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { focusOnPub } from "../redux/slices/pubSlice";
 import { useGetRatingForPubQuery } from "../redux/slices/apiSlices/pubApiSlice";
 import BasicInfo from "./basicInfo/basicInfo";
-import MoreInfo from "./moreInfo/moreInfo";
+import MoreInfo from "./moreInfo/MoreInfo";
 import Reviews from "../reviews/pubReviews/PubReviews";
 import styles from './style.module.scss';
 
@@ -33,7 +33,7 @@ export default function BarTab({ pub, userId = null, visited = false, isSearched
     >
         <BasicInfo pub={pub} userId={userId} visited={visited} avgRating={ratings?.rating} />
         <Buttons showInfo={showInfo} showReviews={showReviews} setShowInfo={setShowInfo} setShowReviews={setShowReviews} />
-        {showInfo && <MoreInfo pub={pub} inView={showInfo} />}
+        {showInfo && <MoreInfo pub={pub} inView={showInfo} avgRatings={ratings}/>}
         {showReviews && <Reviews pub={pub} />}
     </div>
   );
