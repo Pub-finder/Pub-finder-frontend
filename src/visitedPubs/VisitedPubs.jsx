@@ -13,7 +13,7 @@ export default function VisitedPubs() {
 
     return (
         <div className={styles.visitedPubs}>
-            <h2>Pubs that {username} has visited</h2>
+            <h3>Pubs that {username} has visited</h3>
             {isLoading && <Loader />}
             {isError && <p className={styles.errorMsg}>There was an unexpected error. Unable to display Visited Pubs.</p>}
             {(isSuccess && visitedPubs.length === 0) && (
