@@ -5,7 +5,7 @@ import { useGetVisitedPubsQuery, useGetPubsQuery } from "@redux/slices/apiSlices
 import { skipToken } from '@reduxjs/toolkit/query';
 
 import styles from './style.module.scss';
-import BarTab from "../barTab/mobile/barTabMobile";
+import PubMobile from "@pub/mobile/PubMobile";
 import Loader from "@utils/loader/TextSpinnerLoader";
 
 export default function BottomBar() {
@@ -18,11 +18,11 @@ export default function BottomBar() {
             {isLoading && <Loader />}
             {isError && <p>There was an unexpected error.</p>}
             {searchedPub.id && (
-                <BarTab key={searchedPub.id} pub={searchedPub} isSearchedPub={true} />
+                <PubMobile key={searchedPub.id} pub={searchedPub} isSearchedPub={true} />
             )}
             {isSuccess && pubs.length === 0 && <p>No pubs found in this area.</p>}
             {isSuccess && pubs.map((pub) => (
-                <BarTab key={pub.id} pub={pub} isSearchedPub={false} />
+                <PubMobile key={pub.id} pub={pub} isSearchedPub={false} />
             ))}
         </div>
     );
